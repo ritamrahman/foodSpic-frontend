@@ -1,4 +1,6 @@
 import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./Routes/Routes";
 import Coupon from "./Components/Coupon/Coupon";
 import CTA from "./Components/CTA/CTA";
 import Footer from "./Components/Footer/Footer";
@@ -9,12 +11,13 @@ import Home from "./Pages/Home/Home";
 function App() {
   return (
     <div className="max-w-[1500px] mx-auto bg-primary ">
-      <Navbar />
+      {/* <Navbar />
       <Home />
       <Coupon />
       <Kitchens />
       <CTA />
-      <Footer />
+      <Footer /> */}
+      <RouterProvider router={routes}></RouterProvider>
     </div>
   );
 }
