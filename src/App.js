@@ -1,5 +1,6 @@
 import "./App.css";
 import Coupon from "./Components/Coupon/Coupon";
+import CTA from "./Components/CTA/CTA";
 import Kitchens from "./Components/Kitchens/Kitchens";
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
@@ -11,6 +12,7 @@ function App() {
       <Home />
       <Coupon />
       <Kitchens />
+      <CTA />
     </div>
   );
 }

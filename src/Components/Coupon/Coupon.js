@@ -4,7 +4,7 @@ const Coupon = () => {
   return (
     <section
       className=" flex max-w-xl flex-col lg:flex-row-reverse md:flex-row-reverse justify-center items-center overflow-hidden bg-secondary rounded-lg shadow-lg 
-     lg:mx-auto mt-11 pb-4 mx-6"
+     lg:mx-auto mt-11 pb-4 mx-auto"
     >
       {/* discount amount */}
       <div className="w-1/3 flex flex-col justify-center items-center">
