@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         lobster: "Sail, cursive, Arial, sans-serif",
         imperial: "Imperial Script, cursive, Arial, sans-serif",
+        Handlee: "Handlee, cursive, Arial, sans-serif",
       },
     },
     colors: {
