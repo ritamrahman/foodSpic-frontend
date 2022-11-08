@@ -6,6 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 
+#root{
+  background-color: #F4E3C9;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

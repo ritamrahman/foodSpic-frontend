@@ -12,6 +12,7 @@ module.exports = {
     colors: {
       primary: "#F4E3C9",
       secondary: "#FFF2DD",
+      baseBlack: "#282828",
       secondaryBG: "#B31706",
       primaryTextColor: "#B31706",
     },
