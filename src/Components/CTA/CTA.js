@@ -3,7 +3,7 @@ import React from "react";
 const CTA = () => {
   return (
     <section className="bg-primary shadow-lg lg:py-12 lg:flex lg:justify-center  mx-3">
-      <div className="lg:mx-8 flex-col justify-center items-center lg:flex lg:flex-row lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
+      <div className="lg:mx-8 flex-col justify-center items-center lg:flex lg:flex-row lg:max-w-2xl lg:shadow-lg lg:rounded-lg">
         <div className="lg:w-1/2">
           <div className="h-72 lg:rounded-lg lg:h-full flex justify-center items-center overflow-hidden">
             <img
@@ -14,7 +14,7 @@ const CTA = () => {
           </div>
         </div>
 
-        <div className="max-w-full px-6 py-12 lg:max-w-5xl bg-primary lg;bg-primary rounded-2xl shadow-2xl ">
+        <div className="max-w-full h-full px-6 py-12 lg:max-w-5xl bg-primary lg;bg-primary rounded-2xl shadow-2xl ">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white md:text-3xl">
             Join Our <span className="text-primaryTextColor">Newslatter</span>
           </h2>
