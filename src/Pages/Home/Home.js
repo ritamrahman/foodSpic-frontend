@@ -27,13 +27,6 @@ const Home = () => {
                 </svg>
               </div>
             </div>
-            {/* <div className="max-w-lg">
-              <img
-                className="w-full h-full max-w-lg md:max-w-xl aspect-auto lg:max-w-2xl absolute bottom-0 right-0 "
-                src="https://i.imagescrap.org/2022/11/08/hero.png"
-                alt="Catalogue-pana.svg"
-              />
-            </div> */}
           </div>
 
           <div className="flex items-end justify-center lg:justify-end w-full mt-6 lg:mt-40 ">
