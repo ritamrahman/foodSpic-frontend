@@ -1,8 +1,9 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
+import ErrorMsg from "../../Components/ErrorMsg/ErrorMsg";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -64,6 +65,9 @@ const Login = () => {
             {/* <!-- Heading --> */}
             <h1 className="text-xl font-semibold">Welcome back</h1>
             <small className="text-gray-400">Welcome back! Please enter your details</small>
+            {/* Error MEG start */}
+            <ErrorMsg error={error} />
+            {/* Error MEG end */}
 
             {/* <!-- Form --> */}
             <form onSubmit={handleFormSubmit} className="mt-4">
