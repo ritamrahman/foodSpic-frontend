@@ -1,7 +1,59 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { signIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  console.log("location from log", location);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        user?.uid && toast.success("Login successful");
+        user?.uid && navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+
+  // google signIn
+  const handleGoogleSignIn = () => {
+    setLoading(true);
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        user?.uid && toast.success("Login successful");
+        setLoading(false);
+        user?.uid && navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-primary py-10">
       {/* <!-- Login component --> */}
@@ -14,7 +66,7 @@ const Login = () => {
             <small className="text-gray-400">Welcome back! Please enter your details</small>
 
             {/* <!-- Form --> */}
-            <form className="mt-4">
+            <form onSubmit={handleFormSubmit} className="mt-4">
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Email</label>
                 <input
@@ -47,7 +99,10 @@ const Login = () => {
                 <button className="mb-1.5 block w-full text-center text-primary bg-primaryTextColor hover:bg-primary px-2 py-1.5 rounded-md">
                   Sign in
                 </button>
-                <button className="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md">
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="flex flex-wrap justify-center w-full border border-gray-300 hover:border-gray-500 px-2 py-1.5 rounded-md"
+                >
                   <img
                     className="w-5 mr-2"
                     src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
