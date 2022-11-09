@@ -21,9 +21,7 @@ const ReviewForm = () => {
         </div>
       </div>
       <div className="flex items-center justify-center">
-        <a rel="noopener noreferrer" href="#" className="text-sm dark:text-gray-400">
-          Maybe later
-        </a>
+        <span className="text-sm dark:text-gray-400">Maybe later</span>
       </div>
     </div>
   );
