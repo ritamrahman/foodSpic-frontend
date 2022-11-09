@@ -2,7 +2,7 @@ import React from "react";
 
 const ReviewCard = () => {
   return (
-    <div className="p-6 sm:p-6 my-6 bg-primary w-[75%]  rounded-2xl shadow-lg ">
+    <div className="p-6 sm:p-6 my-6 bg-primary mr-2 lg:w-[75%]  rounded-2xl shadow-lg ">
       <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
         <img
           src="https://source.unsplash.com/75x75/?portrait"

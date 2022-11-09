@@ -19,7 +19,7 @@ const KitchenDetails = () => {
           <ReviewForm />
 
           <div className="bg-secondary py-10">
-            <div className="border-l-4 border-secondaryBG ml-10 rounded-xl">
+            <div className="border-l-4 border-secondaryBG lg:ml-10 rounded-xl">
               <ReviewCard />
               <ReviewCard />
               <ReviewCard />
