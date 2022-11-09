@@ -77,12 +77,6 @@ const Navbar = () => {
           >
             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8 font-Handlee">
               <Link
-                to="/"
-                className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
-              >
-                Home
-              </Link>
-              <Link
                 to="/allKitchens"
                 className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
               >
@@ -113,18 +107,24 @@ const Navbar = () => {
                 <>
                   {!loading && user?.uid && (
                     <>
-                      <span
-                        onClick={handleLogOut}
-                        className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
-                      >
-                        Log Out
-                      </span>
                       <Link
                         to="/myreviews"
                         className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
                       >
                         My Reviews
                       </Link>
+                      <Link
+                        to="/addkitchen"
+                        className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
+                      >
+                        Add Kitchen
+                      </Link>
+                      <span
+                        onClick={handleLogOut}
+                        className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-Handlee tracking-wide	"
+                      >
+                        Log Out
+                      </span>
                     </>
                   )}
                 </>
