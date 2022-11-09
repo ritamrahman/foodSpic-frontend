@@ -76,6 +76,8 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  id="email"
+                  name="email"
                   className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                 />
               </div>
@@ -84,6 +86,8 @@ const Login = () => {
                 <label className="mb-2 block text-xs font-semibold">Password</label>
                 <input
                   type="password"
+                  id="password"
+                  name="password"
                   placeholder="*****"
                   className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                 />
