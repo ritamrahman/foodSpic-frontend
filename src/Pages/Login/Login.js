@@ -58,7 +58,7 @@ const Login = () => {
   return (
     <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-primary py-10">
       {/* <!-- Login component --> */}
-      <div className="flex shadow-md bg-secondary">
+      <div className="w-full lg:w-auto md:w-auto flex justify-center items-center shadow-md bg-secondary">
         {/* <!-- Login form --> */}
         <div className="w-[24rem] h-[32rem] flex flex-wrap content-center justify-center rounded-l-md bg-white">
           <div className="w-72">
@@ -66,7 +66,7 @@ const Login = () => {
             <h1 className="text-xl font-semibold">Welcome back</h1>
             <small className="text-gray-400">Welcome back! Please enter your details</small>
             {/* Error MEG start */}
-            <ErrorMsg error={error} />
+            {error && <ErrorMsg error={error} />}
             {/* Error MEG end */}
 
             {/* <!-- Form --> */}
@@ -132,7 +132,7 @@ const Login = () => {
         </div>
 
         {/* <!-- Login banner --> */}
-        <div className="w-[24rem] h-[32rem] flex flex-wrap content-center justify-center rounded-r-md">
+        <div className="w-[24rem] h-[32rem] lg:flex md:flex xl:flex  flex-wrap content-center justify-center rounded-r-md hidden">
           <img
             className="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md"
             src="https://i.imagescrap.org/2022/11/08/4622433-1.webp"
@@ -140,7 +140,6 @@ const Login = () => {
           />
         </div>
       </div>
-      ;
     </div>
   );
 };
