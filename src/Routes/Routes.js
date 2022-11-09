@@ -10,6 +10,7 @@ import KitchenDetails from "../Pages/Kitchens/KitchenDetails";
 import Kitchens from "../Components/Kitchens/Kitchens";
 import CTA from "../Components/CTA/CTA";
 import Coupon from "../Components/Coupon/Coupon";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 
 export const routes = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const routes = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/myreviews",
+        element: <MyReviews />,
       },
       {
         path: "*",
