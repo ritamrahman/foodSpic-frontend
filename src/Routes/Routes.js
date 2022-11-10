@@ -21,7 +21,8 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: [<Home />, <Coupon />, <Kitchens />, <CTA />],
+        element: <Home />,
+        loader: () => fetch(`${api}/topKitchens`),
       },
       {
         path: "/allKitchens",
