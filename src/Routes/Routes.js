@@ -12,6 +12,7 @@ import CTA from "../Components/CTA/CTA";
 import Coupon from "../Components/Coupon/Coupon";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import AddKitchen from "../Pages/AddKitchen/AddKitchen";
+import { api } from "../api/api";
 
 export const routes = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ export const routes = createBrowserRouter([
       {
         path: "/allKitchens",
         element: <AllKitchens />,
+        loader: () => fetch(`${api}/allkitchens`),
       },
       {
         path: "/kitchen/:id",

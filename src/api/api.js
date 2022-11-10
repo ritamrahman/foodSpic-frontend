@@ -1,1 +1,1 @@
-export const api = "https://tech-master-backend.vercel.app";
+export const api = "http://localhost:5000";
