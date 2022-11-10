@@ -5,12 +5,12 @@ const ReviewCard = ({ review }) => {
     <div className="p-6 sm:p-6 my-6 bg-primary mr-2 lg:w-[75%]  rounded-2xl shadow-lg ">
       <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
         <img
-          src="https://source.unsplash.com/75x75/?portrait"
+          src={review.userAvater}
           alt=""
           className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"
         />
         <div className="flex flex-col">
-          <h4 className="text-lg font-semibold text-center md:text-left">Leroy Jenkins</h4>
+          <h4 className="text-lg font-semibold text-center md:text-left">{review.userName}</h4>
           <p className="dark:text-gray-400">{review.review}</p>
           {/* action */}
           <div className="flex mt-7">

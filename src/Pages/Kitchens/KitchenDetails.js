@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import KitchenDetailsCard from "../../Components/Card/KitchenDetailsCard";
@@ -13,12 +14,11 @@ const KitchenDetails = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  // console.log(id);
 
-  console.log("reviews", reviews);
-
+  // call review api
   useEffect(() => {
     setIsLoading(true);
+
     fetch(`${api}/kitchenreview/${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -28,6 +28,45 @@ const KitchenDetails = () => {
       .catch((er) => console.error(er));
   }, [id]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const userName = user.displayName;
+    const userAvater = user.photoURL;
+    const review = form.review.value;
+    //  const minPrice = form.minPrice.value;
+    //  const maxPrice = form.maxPrice.value;
+    //  const dessription = form.dessription.value;
+
+    // console.log(review, userName, userAvater);
+
+    const reviewData = {
+      userName,
+      userAvater,
+      review,
+    };
+    //  console.log(kitchenData);
+
+    fetch(`${api}/submitreview/${id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        // authorization: `Bearer ${localStorage.getItem("genius-token")}`,
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Thanks For Submit Your Review");
+          form.reset();
+          window.location.reload();
+        }
+      })
+      .catch((er) => console.error(er));
+  };
+  console.log(user);
   // console.log(reviews);
   return (
     <div>
@@ -39,8 +78,32 @@ const KitchenDetails = () => {
         {/* review container */}
         <div className=" mt-32 py-20 bg-primary rounded-lg bottom-3 shadow-lg ">
           {!loading && user?.uid ? (
-            <ReviewForm />
+            // ReviewForm start
+            <div className="flex flex-col p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
+              <div className="flex flex-col items-center w-full">
+                <h2 className="text-3xl font-semibold text-center my-7">Your opinion matters!</h2>
+
+                <form onSubmit={handleSubmit} className="flex flex-col w-full">
+                  <textarea
+                    rows="3"
+                    name="review"
+                    placeholder="Message..."
+                    className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    className="max-w-lg mx-auto py-4 px-6 my-8 font-semibold rounded-md bg-secondaryBG text-primary"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+              <div className="flex items-center justify-center">
+                <span className="text-sm dark:text-gray-400">Maybe later</span>
+              </div>
+            </div>
           ) : (
+            // ReviewForm end
             <>
               <section className="bg-secondary dark:bg-gray-900">
                 <div className="container flex flex-col items-center px-4 py-12 mx-auto text-center">
