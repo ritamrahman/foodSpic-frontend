@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import KitchenDetailsCard from "../../Components/Card/KitchenDetailsCard";
 import ReviewCard from "../../Components/Card/ReviewCard";
 import ReviewForm from "../../Components/Review/ReviewForm";
@@ -7,17 +7,16 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const KitchenDetails = () => {
   const { user, loading } = useContext(AuthContext);
+  const KitchenDetails = useLoaderData();
+
+  console.log(KitchenDetails);
 
   return (
     <div>
-      <KitchenDetailsCard />
+      <KitchenDetailsCard KitchenDetails={KitchenDetails} />
       <div className="container mx-auto py-12">
         <h2 className="text-5xl font-Handlee text-center pb-10 text-primaryTextColor">Description</h2>
-        <article className="px-2 lg:px-36">
-          Description is the pattern of narrative development that aims to make vivid a place, object, character, or
-          group. Description is one of four rhetorical modes, along with exposition, argumentation, and narration. In
-          practice it would be difficult to write literature that drew on just one of the four basic modes.
-        </article>
+        <article className="px-2 lg:px-36">{KitchenDetails.dessription}</article>
         {/* review container */}
         <div className=" mt-32 py-20 bg-primary rounded-lg bottom-3 shadow-lg ">
           {!loading && user?.uid ? (
