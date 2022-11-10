@@ -10,7 +10,7 @@ const Card = ({ kitchen }) => {
             {kitchen.kitcheNname}
           </h3>
           <p className="text-sm text-baseBlack font-Handlee font-semibold">
-            {kitchen.dessription.slice(0, 80) + "..Read More"}
+            {kitchen?.dessription.length > 80 ? kitchen.dessription.slice(0, 80) + "..Read More" : kitchen.dessription}
           </p>
           <div className="flex items-center justify-between px-3 py-2 mt-8 bg-gray-200">
             <span className="font-semi-bold text-gray-800">
