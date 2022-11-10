@@ -13,6 +13,7 @@ import Coupon from "../Components/Coupon/Coupon";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import AddKitchen from "../Pages/AddKitchen/AddKitchen";
 import { api } from "../api/api";
+import PrivateRoutes from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/myreviews",
-        element: <MyReviews />,
+        element: (
+          <PrivateRoutes>
+            <MyReviews />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/addkitchen",
