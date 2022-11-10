@@ -22,8 +22,8 @@ const Card = ({ kitchen }) => {
           </div>
         </div>
 
-        <div className="w-56 max-h-[256px] overflow-hidden bg-white rounded-3xl z-10 shadow-lg md:w-64">
-          <img src={kitchen.img} alt="" />
+        <div className="w-56 min-h-[256px] max-h-[256px] relative overflow-hidden bg-white rounded-3xl z-10 shadow-lg md:w-64">
+          <img src={kitchen.img} alt="" className="absolute object-cover w-full h-full" />
         </div>
       </div>
     </Link>

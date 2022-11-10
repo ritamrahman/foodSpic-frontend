@@ -1,10 +1,8 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import toast from "react-hot-toast";
 import { api } from "../../api/api";
 
 const AddKitchen = () => {
-  // const { img, kitcheNname, chefsName, minPrice, maxPrice, dessription } = useLoaderData();
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,7 +14,7 @@ const AddKitchen = () => {
     const dessription = form.dessription.value;
 
     console.log(img, chefsName, kitcheNname, minPrice, maxPrice, dessription);
-    const order = {
+    const kitchenData = {
       img: img,
       kitcheNname: kitcheNname,
       chefsName: chefsName,
@@ -24,7 +22,7 @@ const AddKitchen = () => {
       maxPrice: maxPrice,
       dessription: dessription,
     };
-    console.log(order);
+    console.log(kitchenData);
 
     fetch(`${api}/addkitchen`, {
       method: "POST",
@@ -32,13 +30,13 @@ const AddKitchen = () => {
         "content-type": "application/json",
         // authorization: `Bearer ${localStorage.getItem("genius-token")}`,
       },
-      body: JSON.stringify(order),
+      body: JSON.stringify(kitchenData),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Order placed successfully");
+          toast.success("kitchen successfully");
           // form.reset();
         }
       })
