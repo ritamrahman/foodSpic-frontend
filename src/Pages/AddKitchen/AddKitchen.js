@@ -37,7 +37,7 @@ const AddKitchen = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success("kitchen successfully");
-          // form.reset();
+          form.reset();
         }
       })
       .catch((er) => console.error(er));
