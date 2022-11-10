@@ -1,4 +1,5 @@
 import React from "react";
+import { PhotoView } from "react-photo-view";
 
 const KitchenDetailsCard = ({ KitchenDetails }) => {
   return (
@@ -35,11 +36,13 @@ const KitchenDetailsCard = ({ KitchenDetails }) => {
         </div>
         {/* image */}
         <div className="imageDiv max-h-96 ">
-          <img
-            className="object-cover w-full h-full py-5  lg:rounded-[70px] md:rounded-[70px] aspect-video sm:h-96 "
-            src={KitchenDetails.img}
-            alt=""
-          />
+          <PhotoView src={KitchenDetails.img}>
+            <img
+              className="object-cover w-full h-full py-5  lg:rounded-[70px] md:rounded-[70px] aspect-video sm:h-96 "
+              src={KitchenDetails.img}
+              alt=""
+            />
+          </PhotoView>
         </div>
       </div>
     </div>
