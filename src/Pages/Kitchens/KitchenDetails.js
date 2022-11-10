@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import { api } from "../../api/api";
 import KitchenDetailsCard from "../../Components/Card/KitchenDetailsCard";
 import ReviewCard from "../../Components/Card/ReviewCard";
 import MetaData from "../../Components/Layout/MetaData";
@@ -9,9 +10,25 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const KitchenDetails = () => {
   const { user, loading } = useContext(AuthContext);
   const KitchenDetails = useLoaderData();
+  const { id } = useParams();
+  const [reviews, setReviews] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  // console.log(id);
 
-  console.log(KitchenDetails);
+  console.log("reviews", reviews);
 
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`${api}/kitchenreview/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data);
+        setIsLoading(false);
+      })
+      .catch((er) => console.error(er));
+  }, [id]);
+
+  // console.log(reviews);
   return (
     <div>
       <MetaData title={`${KitchenDetails.kitcheNname}`} />
@@ -57,9 +74,17 @@ const KitchenDetails = () => {
 
           <div className="bg-secondary py-10">
             <div className="border-l-4 border-secondaryBG lg:ml-10 rounded-xl">
-              <ReviewCard />
-              <ReviewCard />
-              <ReviewCard />
+              {isLoading ? (
+                "loading"
+              ) : (
+                <>
+                  {reviews?.length === 0 ? (
+                    <h1 className="text-secondaryBG ">No Review</h1>
+                  ) : (
+                    reviews?.map((review) => <ReviewCard review={review} />)
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewCard = () => {
+const ReviewCard = ({ review }) => {
   return (
     <div className="p-6 sm:p-6 my-6 bg-primary mr-2 lg:w-[75%]  rounded-2xl shadow-lg ">
       <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
@@ -11,10 +11,7 @@ const ReviewCard = () => {
         />
         <div className="flex flex-col">
           <h4 className="text-lg font-semibold text-center md:text-left">Leroy Jenkins</h4>
-          <p className="dark:text-gray-400">
-            Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in,
-            cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.
-          </p>
+          <p className="dark:text-gray-400">{review.review}</p>
           {/* action */}
           <div className="flex mt-7">
             <div className="flex px-5">
