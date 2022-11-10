@@ -41,7 +41,7 @@ const MyReviews = () => {
               </colgroup>
               <thead className="dark:bg-gray-700">
                 <tr className="text-left text-secondary bg-secondaryBG">
-                  <th className="p-3">Kitchen ID</th>
+                  <th className="p-3">Kitchen Name</th>
                   <th className="p-3">Review</th>
                   <th className="p-3">Date</th>
                   <th className="p-3">Action</th>
@@ -52,7 +52,7 @@ const MyReviews = () => {
                   reviews?.map((review) => (
                     <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
                       <>
-                        <td className="p-3">{review.kitchenId}</td>
+                        <td className="p-3">{review.kitchenName ? review.kitchenName : ""}</td>
                         <td className="p-3">{review.review}</td>
                         <td className="p-3">{review.dateWhenCreated.split(":")[0]}</td>
                         <td className="flex p-3 text-right">
