@@ -28,11 +28,13 @@ const KitchenDetails = () => {
       .catch((er) => console.error(er));
   }, [id]);
 
+  // submit review
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const userName = user.displayName;
     const userAvater = user.photoURL;
+    const userEmail = user.email;
     const review = form.review.value;
     //  const minPrice = form.minPrice.value;
     //  const maxPrice = form.maxPrice.value;
@@ -43,6 +45,7 @@ const KitchenDetails = () => {
     const reviewData = {
       userName,
       userAvater,
+      userEmail,
       review,
     };
     //  console.log(kitchenData);
