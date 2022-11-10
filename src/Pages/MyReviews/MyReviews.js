@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { api } from "../../api/api";
 import NotFound from "../../Components/ErrorMsg/NotFound";
@@ -22,6 +23,23 @@ const MyReviews = () => {
       })
       .catch((er) => console.error(er));
   }, [reviews, user.email]);
+
+  // handelDelete
+  const handelDelete = (id) => {
+    console.log("first", id);
+    setIsLoading(true);
+    fetch(`${api}/review/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Deleted successfully");
+          setIsLoading(false);
+        }
+      })
+      .catch((er) => console.error(er));
+  };
 
   return (
     <>
@@ -57,7 +75,9 @@ const MyReviews = () => {
                         <td className="p-3">{review.dateWhenCreated.split(":")[0]}</td>
                         <td className="flex p-3 text-right">
                           <button className="mx-2">Edit</button>
-                          <button className="mx-2">Delete</button>
+                          <button className="mx-2" onClick={() => handelDelete(review._id)}>
+                            Delete
+                          </button>
                         </td>
                       </>
                     </tr>
