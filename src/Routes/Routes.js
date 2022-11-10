@@ -51,6 +51,7 @@ export const routes = createBrowserRouter([
       {
         path: "/addkitchen",
         element: <AddKitchen />,
+        loader: () => fetch(`${api}/addkitchen`),
       },
       {
         path: "*",
