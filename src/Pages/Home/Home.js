@@ -1,8 +1,10 @@
 import React from "react";
+import MetaData from "../../Components/Layout/MetaData";
 
 const Home = () => {
   return (
     <>
+      <MetaData title="" />
       <section className=" px-6 mx-auto bg-primary">
         <div className="items-center lg:flex">
           <div className="relative w-full flex lg:justify-between justify-center items-center">

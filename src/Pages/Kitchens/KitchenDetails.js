@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import KitchenDetailsCard from "../../Components/Card/KitchenDetailsCard";
 import ReviewCard from "../../Components/Card/ReviewCard";
+import MetaData from "../../Components/Layout/MetaData";
 import ReviewForm from "../../Components/Review/ReviewForm";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -13,6 +14,7 @@ const KitchenDetails = () => {
 
   return (
     <div>
+      <MetaData title={`${KitchenDetails.kitcheNname}`} />
       <KitchenDetailsCard KitchenDetails={KitchenDetails} />
       <div className="container mx-auto py-12">
         <h2 className="text-5xl font-Handlee text-center pb-10 text-primaryTextColor">Description</h2>

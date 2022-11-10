@@ -1,6 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { api } from "../../api/api";
+import MetaData from "../../Components/Layout/MetaData";
 
 const AddKitchen = () => {
   const handleSubmit = (event) => {
@@ -45,6 +46,7 @@ const AddKitchen = () => {
 
   return (
     <>
+      <MetaData title="Add Your Kitchen" />;
       <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 my-32">
         <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Your Kitchen Here</h2>
 
